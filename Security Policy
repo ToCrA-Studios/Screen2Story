@@ -1,0 +1,32 @@
+# Security Policy
+
+## Reporting a vulnerability
+
+If you discover a security or privacy issue in Screen2Story (S2S), please
+report it privately to ToCrA Studios rather than publishing sensitive
+details in a public GitHub issue.
+
+Please include:
+
+- A description of the issue
+- Steps to reproduce it
+- The affected S2S version
+- Your macOS version, if relevant
+
+Please do not include private screenshots, recordings, credentials or other
+sensitive personal data in a public report.
+
+## Privacy
+
+Screen2Story is designed as a local-first application.
+
+Project screenshots, notes and exports are stored locally in the location
+selected by the user.
+
+Screen2Story does not require a ToCrA Studios account and does not upload
+project content to ToCrA Studios servers.
+
+S2S does not include ToCrA Studios analytics or tracking.
+
+macOS permissions such as Screen Recording, Microphone and Speech
+Recognition are required only for the corresponding application features.
