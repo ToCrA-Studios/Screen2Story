@@ -35,6 +35,8 @@ Screen2Story does not transmit your screenshots, notes or project content to ToC
 
 ## Download
 
+https://github.com/ToCrA-Studios/Screen2Story/releases/tag/V1.0.0  
+
 The latest version of Screen2Story is available under **Releases** on this repository.
 
 > Note: The current macOS release is not notarized by Apple. macOS may therefore display a security warning when opening the application for the first time.
