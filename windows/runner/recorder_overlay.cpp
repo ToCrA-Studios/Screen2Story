@@ -142,14 +142,18 @@ void RecorderOverlay::CreateToolbar() {
                             owner_, nullptr, GetModuleHandle(nullptr), this);
   const DWORD button_style = WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON;
   CreateWindow(L"BUTTON", L"Foto", button_style, 8, 8, 78, 32, toolbar_,
-               reinterpret_cast<HMENU>(kPhotoButton), nullptr, nullptr);
+               reinterpret_cast<HMENU>(static_cast<INT_PTR>(kPhotoButton)),
+               nullptr, nullptr);
   CreateWindow(L"BUTTON", L"Auswahl", button_style, 92, 8, 86, 32, toolbar_,
-               reinterpret_cast<HMENU>(kRegionButton), nullptr, nullptr);
+               reinterpret_cast<HMENU>(static_cast<INT_PTR>(kRegionButton)),
+               nullptr, nullptr);
   CreateWindow(L"BUTTON", L"Fenster", button_style, 184, 8, 82, 32, toolbar_,
-               reinterpret_cast<HMENU>(kWindowButton), nullptr, nullptr);
+               reinterpret_cast<HMENU>(static_cast<INT_PTR>(kWindowButton)),
+               nullptr, nullptr);
   voice_button_ = CreateWindow(
       L"BUTTON", L"Voice", button_style, 272, 8, 78, 32, toolbar_,
-      reinterpret_cast<HMENU>(kVoiceButton), nullptr, nullptr);
+      reinterpret_cast<HMENU>(static_cast<INT_PTR>(kVoiceButton)), nullptr,
+      nullptr);
   confirmation_ = CreateWindow(L"STATIC", L"", WS_CHILD | SS_CENTERIMAGE,
                                360, 8, 152, 32, toolbar_, nullptr, nullptr,
                                nullptr);
@@ -538,8 +542,9 @@ void RecorderOverlay::ProcessSpeechEvents() {
   while (event.GetFrom(recognition_context_) == S_OK) {
     if (event.eEventId == SPEI_RECOGNITION && event.RecoResult()) {
       WCHAR* text = nullptr;
-      if (SUCCEEDED(event.RecoResult()->GetText(SP_GETWHOLEPHRASE,
-                                                SP_GETWHOLEPHRASE, TRUE,
+      if (SUCCEEDED(event.RecoResult()->GetText(
+              static_cast<ULONG>(SP_GETWHOLEPHRASE),
+              static_cast<ULONG>(SP_GETWHOLEPHRASE), TRUE,
                                                 &text, nullptr)) && text) {
         if (!transcript_.empty()) transcript_ += L" ";
         transcript_ += text;

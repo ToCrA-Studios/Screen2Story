@@ -6,7 +6,10 @@
 #include <windows.h>
 #include <gdiplus.h>
 #include <sapi.h>
+#pragma warning(push)
+#pragma warning(disable : 4996)
 #include <sphelper.h>
+#pragma warning(pop)
 
 #include <memory>
 #include <string>
